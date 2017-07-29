@@ -1,0 +1,32 @@
+@import "bourbon"
+
++font-face("Fontello", "../fonts/Fontello/fontello", $file-formats: eot woff woff2 ttf)
++font-face("RobotoRegular", "../fonts/RobotoRegular/RobotoRegular", 400, $file-formats: eot woff ttf)
++font-face("RobotoBold", "../fonts/RobotoBold/RobotoBold", 600, $file-formats: eot woff ttf)
++font-face("RobotoLight", "../fonts/RobotoLight/RobotoLight", 300, $file-formats: eot woff ttf)
+
+
+[class^="icon-"]:before, [class*=" icon-"]:before
+  font-family: "Fontello"
+  font-style: normal
+  font-weight: normal
+  speak: none
+  display: inline-block
+  text-decoration: inherit
+  width: 1em
+  text-align: center
+  font-variant: normal
+  text-transform: none
+  line-height: 1em
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+
+.icon-phone:before
+  content: '\e800'
+.icon-location:before
+  content: '\e801'
+.icon-clock:before
+  content: '\e802'
+.icon-building:before
+  content: '\f0f7'

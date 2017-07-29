@@ -1,0 +1,511 @@
+@import "bourbon"
+@import "../../vars"
+
+//Load Libs SASS
+@import "src/libs/justifiedGallery/dist/css/justifiedGallery"
+@import "src/libs/magnific-popup/dist/magnific-popup"
+@import "src/libs/bootstrap-year-calendar/css/bootstrap-year-calendar"
+@import "src/libs/ggpopover/assets/css/ggpopover"
+@import "src/libs/jquery-toast-plugin/src/jquery.toast"
+
+*::-webkit-input-placeholder
+  color: rgba(#adaeae, .7)
+  opacity: 1
+
+*:-moz-placeholder
+  color: rgba(#adaeae, .7)
+  opacity: 1
+
+*::-moz-placeholder
+  color: rgba(#adaeae, .7)
+  opacity: 1
+
+*:-ms-input-placeholder
+  color: rgba(#adaeae, .7)
+  opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+  color: rgba(#adaeae, .7)
+
+body input:required:valid,
+body textarea:required:valid
+  color: #fff
+
+//Custom Styles Here
+
+.mfp-arrow
+  position: absolute
+  margin: 0
+  padding: 0
+  width: 40px
+  top: calc(50% - 20px)
+  height: auto
+  font-size: 0
+  opacity: 1
+  svg
+    width: 100%
+    height: auto
+    fill: #adaeae
+    pointer-events: none
+    transition: .25s all ease
+  &:active
+    margin-top: 0
+
+  &:hover,
+  &:focus
+    svg
+      fill: #fff
+
+  &:before,
+  &:after
+    display: none
+
+  &-left
+    left: 10px
+    svg
+      transform: rotate(90deg)
+
+  &-right
+    right: 10px
+    svg
+      transform: rotate(-90deg)
+
+.mfp-close
+  width: 28px
+  height: 28px
+  line-height: 28px
+  right: 18px
+  top: 20px
+  opacity: 1
+  padding: 0
+  svg
+    width: 100%
+    height: auto
+    fill: #adaeae
+    transition: .25s all ease
+
+  &:hover,
+  &:focus
+    svg
+      fill: #fff
+
+  &:active
+    top: 18px
+
+.mfp-fade.mfp-bg
+  opacity: 0
+  transition: all 0.3s ease-in-out
+
+.mfp-fade.mfp-ready.mfp-bg
+  opacity: 0.9
+
+.mfp-fade.mfp-removing.mfp-bg
+  opacity: 0
+
+.mfp-fade.mfp-wrap
+  .mfp-content, .mfp-close, .mfp-arrow
+    opacity: 0
+    transition: all 0.3s ease-in-out
+
+.mfp-fade.mfp-ready.mfp-wrap
+  .mfp-content, .mfp-close, .mfp-arrow
+    opacity: 1
+
+.mfp-fade.mfp-removing.mfp-wrap
+  .mfp-content, .mfp-close, .mfp-arrow
+    opacity: 0
+
+//Calendar
+.ggpopover
+  min-width: 320px
+  border: none
+  border-radius: 0
+  box-shadow: none
+  padding: 0
+  z-index: 998
+  .popover-content
+    padding: 0
+  &__img
+    height: 200px
+    background: #0c0c0c no-repeat center center
+    background-size: cover
+  &__title
+    font-weight: 300
+    margin: 10px 14px
+    text-transform: uppercase
+    &_only
+      text-align: center
+  &__text
+    margin: 0
+    padding: 0 14px 10px
+  &__link
+    display: block
+    color: #fff
+    padding: 5px 6px
+    &:hover, &:focus
+      color: #fff
+      text-decoration: none
+  &__meta
+    margin: 0
+    padding: 10px 14px
+    background-color: #f7f7f7
+    border-top: 1px solid #e1e1e1
+    span
+      display: block
+      & + span
+        margin-top: 5px
+  &__icon
+    vertical-align: middle
+    display: inline-block
+    font-size: 18px
+    margin-right: 7px
+
+.calendar
+  color: #fff
+  .calendar-header
+    margin-bottom: 40px
+  .month-container
+    height: 260px
+  .year-neighbor
+    font-weight: 300
+    &:after, &:before
+      display: none
+    color: rgba(#adaeae, .7)
+  .year-neighbor2
+    font-weight: 300
+    &:after, &:before
+      display: none
+    color: rgba(#adaeae, .4)
+  .calendar-header table th.year-title
+    position: relative
+    font-weight: 300
+    &:after, &:before
+      content: '—'
+      position: absolute
+      transition: .25s all ease
+    &:after
+      right: 25%
+    &:before
+      left: 25%
+    &:hover
+      background-color: transparent
+  table.month th
+    &.month-title, &.day-header
+      text-transform: uppercase
+      font-weight: 300
+    &.day-header
+      &:nth-last-child(1), &:nth-last-child(2)
+        color: #c0392b
+  table.month tr td .day-content
+    padding: 0
+
+.calendar-legend
+  text-align: center
+  &__list
+    padding: 0
+    margin: 30px 0 0
+  &__item
+    display: inline-block
+    list-style-type: none
+    color: #ffffff
+    text-transform: uppercase
+    margin-top: 20px
+    margin-right: 20px
+    line-height: 1
+    &:last-of-type
+      margin-right: 0
+  &__color
+    display: inline-block
+    margin-right: 10px
+    width: 20px
+    height: 20px
+    vertical-align: middle
+    border-radius: 50%
+    margin-top: -3px
+
+.gallery-grid
+  width: 100%
+  &__item
+    margin-bottom: 15px
+  &__link
+    &:focus
+      outline: none
+  &__img
+    width: 100%
+    height: auto
+    filter: grayscale(50%)
+    transition: .3s all ease !important
+    &:hover
+      filter: grayscale(0)
+
+.video
+  &__item
+    display: flex
+    flex-wrap: wrap
+    min-height: 300px
+    background-color: #fff
+    color: #000
+    margin-bottom: 15px
+    margin-left: 8px
+    margin-right: 8px
+    &--reverse
+      flex-direction: row-reverse
+    &:hover
+      .video__img-block
+        filter: grayscale(0)
+      .video__img-mask
+        opacity: 1
+  &__description-block
+    display: flex
+    flex-flow: column wrap
+    justify-content: center
+    align-items: center
+    width: 50%
+    padding: 45px
+  &__img-block
+    position: relative
+    width: 50%
+    background: #000 no-repeat center center
+    background-size: cover
+    filter: grayscale(50%)
+    transition: .25s all ease
+  &__img-mask
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: rgba(0, 0, 0, .5)
+    transition: .5s all ease
+    opacity: 0
+  &__link-play
+    transition: .5s all ease
+    &:hover
+      transform: scale(1.15)
+  &__title
+    margin: 0
+    font-size: 32px
+    line-height: 1.1
+    text-transform: uppercase
+    text-align: center
+  &__description
+    text-align: center
+    margin: 30px 0 0
+
+.popup-youtube
+  &:focus
+    outline: none
+
+.reviews
+  &__item
+    background-color: #fff
+    margin-bottom: 15px
+    text-align: center
+    &:hover
+      .reviews__img
+        filter: grayscale(0)
+  &__img
+    height: 180px
+    background: #000 no-repeat center center
+    background-size: cover
+    filter: grayscale(50%)
+    transition: .25s all ease
+  &__content
+    display: flex
+    flex-wrap: wrap
+    padding: 20px 10px
+    .btn
+      margin: 0 auto
+      align-self: flex-end
+  &__name
+    display: block
+    width: 100%
+    text-transform: uppercase
+    font-size: 22px
+    font-weight: 300
+    line-height: 1.1
+    margin: 0
+  &__date
+    width: 100%
+    text-transform: uppercase
+    margin: 10px 0 20px
+    color: #b0b0b0
+  &__link
+    &:focus
+      outline: none
+
+.reviews-popup
+  position: relative
+  background: #FFF
+  width: auto
+  max-width: 900px
+  margin: 50px auto
+  &__meta
+    text-align: center
+    padding: 20px 10px 0
+  &__avatar
+    margin: 0 auto
+    width: 130px
+    filter: grayscale(50%)
+  &__name
+    text-transform: uppercase
+    font-size: 20px
+  &__date
+    margin-top: 0
+    margin-bottom: 20px
+    text-transform: uppercase
+    font-size: 12px
+    color: #b0b0b0
+  &__description
+    margin: 0
+    padding: 0 10px 10px
+
+.reviews-gallery
+  &__img
+    filter: grayscale(50%)
+    transition: .3s all ease-out !important
+    &:hover
+      filter: grayscale(0)
+
+
+.contact-info
+  text-align: right
+  padding-right: 30px
+  &__list
+    margin: 0
+    padding: 0
+    list-style-type: none
+  &__title
+    font-size: 1.428em
+    font-weight: 300
+    text-transform: uppercase
+    margin-top: 30px
+    color: #fff
+    line-height: 1
+    &:first-child
+      margin-top: -3px
+  &__item
+    color: #adaeae
+    letter-spacing: 1px
+    margin-top: 3px
+  &__link
+    color: #adaeae
+    transition: .25s color ease
+    &:hover, &:visited
+      text-decoration: none
+      color: #fff
+
+.contact-form
+  padding-left: 30px
+  &__control
+    margin-bottom: 30px
+  .btn
+    margin-top: 0
+  &__confident
+    margin-top: -10px
+    a
+      color: rgba(#fff, .7)
+      transition: .25s all ease
+      &:hover
+        color: #fff
+  &__text-field, &__textarea
+    letter-spacing: 1px
+    width: 100%
+    background: none
+    border: 1px solid rgba(#adaeae, .7)
+    padding: 10px
+    outline: none
+    transition: .5s all ease
+    &:focus, &:hover
+      border-color: #fff
+
+.material-elements
+  .element-checkbox
+    position: relative
+    color: rgba(#adaeae, .7)
+
+  .element-checkbox input[type="checkbox"]
+    margin-left: 10px
+    visibility: hidden
+
+  .element-checkbox input[type="checkbox"] + label
+    position: absolute
+    left: 0
+    top: 3px
+    width: 16px
+    height: 16px
+    border: 1px solid rgba(#adaeae, .7)
+    transition: .15s all linear
+    &:hover
+      cursor: pointer
+
+  .element-checkbox input[type="checkbox"]
+    &:checked + label
+      border-color: #fff
+      &:before
+        transform: rotate(45deg)
+        position: absolute
+        left: 5px
+        top: 1px
+        width: 4px
+        height: 10px
+        border: 1px solid #fff
+        border-top: 0
+        border-left: 0
+        content: ''
+    &:disabled
+      & + label
+        background-color: #d0d0d0
+        cursor: default
+      &:checked + label
+        border: 2px solid #d0d0d0
+        background-color: #d0d0d0
+        cursor: default
+
+.footer
+  margin-top: 50px
+  border-top: 1px solid rgba(174, 174, 174, .3)
+  &__copyright
+    font-weight: 300
+    text-align: center
+    color: rgba(#adaeae, .7)
+
+.jq-toast-wrap
+  width: 300px
+
+.jq-toast-single
+  padding: 15px 25px 15px 15px
+  margin: 0 0 5px
+  border-radius: 0
+  font-size: inherit
+  font-family: inherit
+  line-height: inherit
+
+.jq-toast-wrap.bottom-right
+  bottom: 20px
+  right: 20px
+
+.close-jq-toast-single
+  top: -3px
+  right: 7px
+  font-size: 20px
+
+.jq-toast-single h2
+  font-family: inherit
+  text-transform: uppercase
+
+.jq-icon-success
+  background: #27ae60
+
+.jq-icon-error
+  background: #c0392b
+
+.jq-icon-warning
+  background: #e67e22
+
+//ALWAYS END
+@import "media"
